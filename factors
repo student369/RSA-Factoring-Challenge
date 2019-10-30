@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+def factors(n):
+    b = 2
+    a = 0
+    while True:
+        if n % b == 0:
+            a = n // b
+            if (a * b == n):
+                return a, b
+        b += 1
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) > 1:
+        filename = sys.argv[1]
+        with open(filename, encoding="utf-8") as f:
+            while True:
+                try:
+                    n = int(f.readline())
+                    a, b = factors(n)
+                    print(f"{n}={a}*{b}\n", end="")
+                except:
+                    break
